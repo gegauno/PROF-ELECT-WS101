@@ -1,34 +1,69 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Simple Slide Template</title>
-  <link rel="stylesheet" href="Assets/css/style1.css" type="text/css" media="screen" />
-  <script type="text/javascript" src="CSS/accordian.pack.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Material</title>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="./assets/css/materialize.min.css">
+    <!-- Material Font -->
+    <link rel="stylesheet" href="./assets/css/material-font.css">
+    <!-- Mobile Support -->
+    <link rel="stylesheet" href="./assets/css/materialize.min.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
-
-<body onload="new Accordian('basic-accordian',5,'header_highlight');">
-  <div id="logo"><h1>GaaaGeee</h1></div>
-  <div id="basic-accordian" >
-    <div id="test-header" class="accordion_headings header_highlight"><a href="index.html"> Home</a> <a href="blog.html">Blog</a> 
-     <a href="login.html" style="margin-left: 710px">Logout</a></div>
-    
-    <div id="test-content">
-      <div class="accordion_child">
-        <h1>JOHN WICK </h1>
-         <img src="Assets/img/gg.jpg">
-
-         <h1 style="color: black" style="text-align: center;" style="text-align: justify-all;">John is a man of focus, commitment, sheer will... something you know very little about. I once saw him kill three men in a bar, with a pencil. With a f***ing... pencil. Then suddenly one day he asked to leave. It's over a woman, of course. So I made a deal with him. I gave him an impossible task. A job no one could have pulled off. The bodies he buried that day laid the foundation of what we are now. And then my son, a few days after his wife died, you steal his car and kill his f***in' dog.</h1>
+<body>
+             
+    <nav>
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo">BhaaBhaaYaaGaa</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+           <li><a href="logout.html">logout</a></li>
         </ul>
-      </div>
+        </div>
+        <div><a class="carousel-item" href="#one!"><img src="../Material/assets/img/1.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="../Material/assets/img/2.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="../Material/assets/img/3.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="../Material/assets/img/4.jpg"></a>
+            <a class="carousel-item" href="#five!"><img src="../Material/assets/img/5.jpg"></a></div>
+    </nav>
+    <!-- Material JS -->
+    <script src="./assets/js/materialize.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+        var elems = document.querySelectorAll('.scrollspy');
+        var instances = M.ScrollSpy.init(elems);
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
+    <div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+      <a class="btn waves-effect white grey-text darken-text-2">button</a>
     </div>
-    <div id="test1-header" class="accordion_headings" >GaaaGeee</div>
-    <div id="test1-content">
-      
-  <div id="footer">
-    <img src="Assets/img/ge.jpg">
-    <p>Romeo C. Dalupere | <a href="http://validator.w3.org/check?uri=referer">09/10/1995</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Male</a> | <a href="http://www.html5webtemplates.co.uk">IT Student</a> | <a href="http://dezinerfolio.com">If it isn't in google it doesn't exist</a></p>
+    <div class="carousel-item red white-text" href="#one!">
+      <h2>First Panel</h2>
+      <p class="white-text">This is your first panel</p>
+    </div>
+    <div class="carousel-item amber white-text" href="#two!">
+      <h2>Second Panel</h2>
+      <p class="white-text">This is your second panel</p>
+    </div>
+    <div class="carousel-item green white-text" href="#three!">
+      <h2>Third Panel</h2>
+      <p class="white-text">This is your third panel</p>
+    </div>
+    <div class="carousel-item blue white-text" href="#four!">
+      <h2>Fourth Panel</h2>
+      <p class="white-text">This is your fourth panel</p>
+    </div>
   </div>
+    </script>
 </body>
 </html>
