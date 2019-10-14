@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Window Dashboard</title>
+    <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/materializecss.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/materializecss-icons.css')}}">
+</head>
+<body>
+    <header>
+    <nav>
+    <div class="nav-wrapper green">
+        <a href="#!" class="brand-logo center">GCC - Queuing System</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">Login <i class="material-icons right">vpn_key</i></a></li>
+            <li class="active"><a href="/windash">Windows Dashboard <i class="material-icons right">developer_board</i></a></li>
+        </ul>
+    </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Login <i class="material-icons right">vpn_key</i></a></li>
+        <li class="active"><a href="/windash">Windows Dashboard <i class="material-icons right">developer_board</i></a></li>
+    </ul>
+    </header>   
+    <main>
+       <div class="row">
+        {% for row in data %}
+        <div class="col s4 m4">
+            <div class="card white">
+                <div class="card-content white-text">
+                    <span class="card-title green-text flow-text center" style="font-size: 2rem;">Window {{row[7]}} : {{row[6]}}</span>
+                    <span class="card-title green-text flow-text center" style="font-size: 1rem;">Now Serving...</span>
+                    {%for col in data2%}
+                    {% if row[7] == col[1] %}
+                    <span class="card-title flow-text center green-text" style="font-size:4rem;" id="numb">{{col[0]}}</span>
+                    <br>
+                    <span class="card-title flow-text green-text left">Purpose: <b id="purpose">{{col[4]}}</b> </span>
+                    {%endif%}
+                    {%endfor%}
+                <!-- {{ session['winNo'] }} -->
+                <br>
+                </div>
+                <div class="card-action green darken-2">
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}    
+      </div>
+    </main>
+    <footer class="page-footer green">
+       
+    </footer>
+    <!-- MaterializeCSS -->
+    <script src="{{ url_for('static',filename='assets/js/materialize-css.min.js')}}"></script>
+    <script>
+    M.AutoInit();
+    setTimeout(function(){
+      window.location.reload(1);
+    }, 2500);
+    let status = '{{status}}';
+    if(status!=''){
+      M.toast({html: status.data})
+    }
+    </script>
+</body>
+</html>
