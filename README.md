@@ -13,8 +13,8 @@
 [![Flask](https://palletsprojects.com/logo-large.png)](https://palletsprojects.com/p/flask/)
 
 ## Installation:
-1. Install all Python3 Libraries: <code>pip3 install -r requirements.txt</code>
-2. Linux: <code>apt install python3-mysqldb mariadb-server</code> 
+1. Install all Python3 Libraries: <code>sudo pip3 install -r requirements.txt</code>
+2. Linux: <code>apt install python3-mysqldb mariadb-server python3-flask</code> 
 3. Login to MariaDB Console: <code>sudo mysql -u root</code>
 4. Create Login Credentials on MariaDB: 
     <code>DROP USER 'root'@'localhost';</code>
@@ -24,6 +24,6 @@
 5. Import the SQL File: <code>source db_queuing.sql</code>
 6. Run the App: <code>sudo python3 main.py</code>
 
-[![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/RFIDSys.git)
-[![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/mboy1011/RFIDSys.git)
+[![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/PROF-ELECT-WS-101.git)
+[![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/mboy1011/PROF-ELECT-WS-101.git)
 

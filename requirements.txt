@@ -1,11 +1,9 @@
 Flask
 flask
 Flask-SQLAlchemy
-SQLAlchemy
+sqlalchemy
 Jinja2
 gevent
-mfrc522
 netifaces
 Flask-SocketIO
-MySQLdb
 func_timeout
