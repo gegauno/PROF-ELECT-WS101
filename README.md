@@ -20,7 +20,7 @@
     <code>DROP USER 'root'@'localhost';</code>
     <code>CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';</code>
     <code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost'</code>
-4. Create a database: <code>CREATE DATABASE db_queuing.sql</code>
+4. Create a database: <code>CREATE DATABASE db_queuing</code><code>user db_queuing;</code>
 5. Import the SQL File: <code>source db_queuing.sql</code>
 6. Run the App: <code>sudo python3 main.py</code>
 
