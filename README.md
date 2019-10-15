@@ -14,7 +14,8 @@
 
 ## Installation:
 1. Install all Python3 Libraries: <code>pip3 install -r requirements.txt</code>
-2. Run the App: <code>sudo python3 main.py</code>
+2. Linux: <code>apt install python3-mysqldb</code>
+3. Run the App: <code>sudo python3 main.py</code>
 
 [![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/RFIDSys.git)
 [![License](https://img.shields.io/apm/l/vim-mode.svg)](https://github.com/mboy1011/RFIDSys.git)
