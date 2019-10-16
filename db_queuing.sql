@@ -30,7 +30,7 @@ CREATE TABLE `queue_logs` (
   `user_info_id` int(11) DEFAULT NULL,
   `date_printed` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`q_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `queue_logs` (
 
 LOCK TABLES `queue_logs` WRITE;
 /*!40000 ALTER TABLE `queue_logs` DISABLE KEYS */;
-INSERT INTO `queue_logs` VALUES (1,1,3,2,1,'2019-07-10 07:50:46'),(2,2,3,2,2,'2019-07-11 07:50:46'),(3,2,3,2,1,'2019-07-13 07:50:46'),(4,1,2,1,1,'2019-07-14 07:50:46'),(5,2,2,1,1,'2019-07-15 07:50:46'),(6,3,3,1,1,'2019-07-16 07:50:46'),(7,1,2,1,2,'2019-07-17 07:50:46'),(8,2,14,1,2,'2019-07-18 07:50:46'),(9,2,14,1,1,'2019-08-01 07:50:46'),(10,2,14,1,1,'2019-08-02 07:50:46'),(11,2,14,1,2,'2019-08-03 07:50:46'),(12,2,14,1,3,'2019-08-04 07:50:46'),(13,3,2,1,4,'2019-08-05 07:50:46'),(14,4,2,1,1,'2019-08-11 07:50:46'),(15,5,2,1,2,'2019-08-12 07:50:46'),(16,6,2,1,3,'2019-08-13 07:50:46'),(17,7,2,1,4,'2019-08-15 07:50:46'),(18,8,2,1,1,'2019-09-01 07:50:46'),(19,10,14,1,2,'2019-09-02 07:50:46'),(20,11,14,1,3,'2019-09-03 07:50:46'),(21,12,14,1,4,'2019-09-04 07:50:46'),(22,9,14,1,1,'2019-09-05 07:50:46'),(23,13,14,1,2,'2019-09-06 07:50:46'),(24,3,3,2,3,'2019-09-07 07:50:46'),(25,14,14,1,4,'2019-09-08 07:50:46'),(26,15,1,1,1,'2019-09-09 07:50:46'),(27,16,1,1,2,'2019-09-10 07:50:46'),(28,17,1,1,3,'2019-09-11 07:50:46'),(29,18,1,1,4,'2019-09-12 07:50:46'),(30,19,1,1,1,'2019-09-13 07:50:46'),(31,20,1,1,2,'2019-09-14 07:50:46'),(32,21,4,1,3,'2019-09-15 07:50:46'),(33,22,2,1,4,'2019-09-16 07:50:46'),(34,23,2,1,1,'2019-09-17 07:50:46'),(35,24,4,1,2,'2019-09-18 07:50:46'),(36,25,3,1,3,'2019-09-19 07:50:46'),(37,26,4,1,1,'2019-10-12 07:50:46'),(38,10,8,2,2,'2019-10-12 07:51:14'),(39,11,8,2,2,'2019-10-12 09:48:21'),(40,0,1,1,1,'2019-10-12 10:33:11');
+INSERT INTO `queue_logs` VALUES (1,1,3,2,1,'2019-07-10 07:50:46'),(2,2,3,2,2,'2019-07-11 07:50:46'),(3,2,3,2,1,'2019-07-13 07:50:46'),(4,1,2,1,1,'2019-07-14 07:50:46'),(5,2,2,1,1,'2019-07-15 07:50:46'),(6,3,3,1,1,'2019-07-16 07:50:46'),(7,1,2,1,2,'2019-07-17 07:50:46'),(8,2,14,1,2,'2019-07-18 07:50:46'),(9,2,14,1,1,'2019-08-01 07:50:46'),(10,2,14,1,1,'2019-08-02 07:50:46'),(11,2,14,1,2,'2019-08-03 07:50:46'),(12,2,14,1,3,'2019-08-04 07:50:46'),(13,3,2,1,4,'2019-08-05 07:50:46'),(14,4,2,1,1,'2019-08-11 07:50:46'),(15,5,2,1,2,'2019-08-12 07:50:46'),(16,6,2,1,3,'2019-08-13 07:50:46'),(17,7,2,1,4,'2019-08-15 07:50:46'),(18,8,2,1,1,'2019-09-01 07:50:46'),(19,10,14,1,2,'2019-09-02 07:50:46'),(20,11,14,1,3,'2019-09-03 07:50:46'),(21,12,14,1,4,'2019-09-04 07:50:46'),(22,9,14,1,1,'2019-09-05 07:50:46'),(23,13,14,1,2,'2019-09-06 07:50:46'),(24,3,3,2,3,'2019-09-07 07:50:46'),(25,14,14,1,4,'2019-09-08 07:50:46'),(26,15,1,1,1,'2019-09-09 07:50:46'),(27,16,1,1,2,'2019-09-10 07:50:46'),(28,17,1,1,3,'2019-09-11 07:50:46'),(29,18,1,1,4,'2019-09-12 07:50:46'),(30,19,1,1,1,'2019-09-13 07:50:46'),(31,20,1,1,2,'2019-09-14 07:50:46'),(32,21,4,1,3,'2019-09-15 07:50:46'),(33,22,2,1,4,'2019-09-16 07:50:46'),(34,23,2,1,1,'2019-09-17 07:50:46'),(35,24,4,1,2,'2019-09-18 07:50:46'),(36,25,3,1,3,'2019-09-19 07:50:46'),(37,26,4,1,1,'2019-10-12 07:50:46'),(38,10,8,2,2,'2019-10-12 07:51:14'),(39,11,8,2,2,'2019-10-12 09:48:21'),(40,0,1,1,1,'2019-10-12 10:33:11'),(41,2,1,1,1,'2019-10-15 03:44:21'),(42,1,1,1,1,'2019-10-15 04:04:19'),(43,2,1,1,1,'2019-10-15 04:04:49'),(44,3,1,1,1,'2019-10-15 05:26:28'),(45,4,1,1,1,'2019-10-15 05:32:44'),(46,5,1,1,1,'2019-10-15 05:34:53'),(47,6,1,1,1,'2019-10-15 05:35:39'),(48,10,1,1,1,'2019-10-15 05:37:09'),(49,11,1,1,1,'2019-10-15 05:38:28'),(50,7,1,1,1,'2019-10-15 05:41:08'),(51,8,1,1,1,'2019-10-15 05:41:16'),(52,9,1,1,1,'2019-10-15 05:41:17'),(53,12,6,1,1,'2019-10-15 06:05:36'),(54,1,6,1,1,'2019-10-15 06:08:33'),(55,2,5,1,1,'2019-10-15 15:01:38');
 /*!40000 ALTER TABLE `queue_logs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +84,7 @@ CREATE TABLE `tbl_login` (
   `utype` int(1) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `tbl_login` (
 
 LOCK TABLES `tbl_login` WRITE;
 /*!40000 ALTER TABLE `tbl_login` DISABLE KEYS */;
-INSERT INTO `tbl_login` VALUES (1,3,'root','admin1234',0,'2019-09-24 17:13:10'),(2,1,'gega','uno1234',1,'2019-09-25 00:44:35'),(3,2,'veloz','vickyveloz',1,'2019-10-03 10:21:31');
+INSERT INTO `tbl_login` VALUES (1,3,'root','admin1234',0,'2019-09-24 17:13:10'),(2,1,'gega','uno1234',1,'2019-09-25 00:44:35'),(3,2,'veloz','vickyveloz',1,'2019-10-03 10:21:31'),(6,5,'user','user1234',1,'2019-10-14 07:10:38'),(7,4,'registrar','registrar1234',1,'2019-10-14 07:12:13'),(8,1,'ladesma','1234',1,'2019-10-14 07:19:00');
 /*!40000 ALTER TABLE `tbl_login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `tbl_printed` (
   `purp_id` int(11) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `tbl_printed` (
 
 LOCK TABLES `tbl_printed` WRITE;
 /*!40000 ALTER TABLE `tbl_printed` DISABLE KEYS */;
-INSERT INTO `tbl_printed` VALUES (2,2,'0',7,'2019-10-12 10:36:37'),(3,2,'0',7,'2019-10-12 10:38:48');
+INSERT INTO `tbl_printed` VALUES (15,5,'1',88,'2019-10-15 06:11:37'),(16,5,'2',88,'2019-10-15 06:12:49'),(17,5,'3',88,'2019-10-15 06:15:37'),(18,5,'4',88,'2019-10-15 06:15:49'),(19,6,'1',81,'2019-10-15 06:15:57');
 /*!40000 ALTER TABLE `tbl_printed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +138,7 @@ CREATE TABLE `tbl_purpose` (
   `win_no` int(11) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`purp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +147,7 @@ CREATE TABLE `tbl_purpose` (
 
 LOCK TABLES `tbl_purpose` WRITE;
 /*!40000 ALTER TABLE `tbl_purpose` DISABLE KEYS */;
-INSERT INTO `tbl_purpose` VALUES (1,' Enrollment','Elementary/Senior High School Enrollment',1,'2019-10-03 11:40:29'),(2,' Grades','Elementary/High School/Senior High School Grades',1,'2019-10-03 11:40:29'),(3,' Form 137','Elementary /High School/Senior High SchoolForm 137',1,'2019-10-03 11:52:52'),(4,'  Good Moral','Elementary/High School/Senior High School Good Moral',1,'2019-10-03 11:52:52'),(5,'Certificate of Enrollment','Elementary /High School/Senior High SchoolDiploma',1,'2019-10-03 11:52:52'),(6,' GWA','Elementary /High School/Senior High SchoolGWA',1,'2019-10-03 11:52:52'),(7,'Junior High School Grades','Junior High School Grades',2,'2019-10-03 11:55:09'),(8,'Junior High School Enrollment','Junior High School Enrollmen',2,'2019-10-03 11:55:09'),(9,'Junior High School Good Moral','Junior High School Good Moral',2,'2019-10-03 11:55:09'),(10,'Junior High School Certificate of Enrollment','Junior High School Certificate of Enrollment',2,'2019-10-03 11:56:25'),(11,'Junior High School Form 137','Junior High School Form 137',2,'2019-10-03 11:56:26'),(12,'Junior High School  GWA','Junior High School  GWA',2,'2019-10-03 11:56:26'),(13,'Junior High School  Diploma','Junior High School  Diploma',2,'2019-10-03 11:56:48'),(24,'College 1 Study Load ','College 1 Study Load',3,'2019-10-03 12:09:26'),(25,'College 1 Good Moral','College 1 Good Mora',3,'2019-10-03 12:09:26'),(26,'College 1  Certificate of Enrollment','College 1  Certificate of Enrollment',3,'2019-10-03 12:09:26'),(27,'College 1  Transcript of Record','College 1  Transcript of Record',3,'2019-10-03 12:09:26'),(28,'College 1  GWA','College 1  GWA',3,'2019-10-03 12:09:26'),(29,'College 1 Diploma','College 1 Diploma',3,'2019-10-03 12:09:26'),(30,'College 2 Enrollment','College 2 Enrollment',4,'2019-10-03 12:09:26'),(31,'College 2 Entrance Exam','College 2 Entrance Exam',4,'2019-10-03 12:09:26'),(32,'College 2 Grades','College 2 Grades',4,'2019-10-03 12:09:26'),(33,'College 2 Study Load','College 2 Study Load',4,'2019-10-03 12:09:26'),(34,'College 2 Good Moral','College 2 Good Moral',4,'2019-10-03 12:09:26'),(35,'College 2  Certificate of Enrollment','College 2  Certificate of Enrollment',4,'2019-10-03 12:09:26'),(36,'College 2  Transcript of Record','College 2  Transcript of Record',4,'2019-10-03 12:09:26'),(71,'College 2 GWA','College 2 GWA',4,'2019-10-03 12:09:26'),(72,'College 2 Diploma','College 2 Diploma',4,'2019-10-03 12:09:26'),(81,'Assessment 1 Account Slip','Assessment 1 Account Slip',6,'2019-10-03 12:22:18'),(82,'Assessment 2 Account Slip','Assessment 2 Account Slip',7,'2019-10-03 12:22:18'),(83,'Cashier 1 Parents  Tuition Fees','Cashier 1 Parents  Tuition Fees',8,'2019-10-03 12:22:18'),(84,'Cashier 1 Books and etc','Cashier 1 Books and etc',8,'2019-10-03 12:22:19'),(85,'Cashier 2 Parents  Tuition Fees','Cashier 2 Parents  Tuition Fees',9,'2019-10-03 12:22:19'),(86,'Cashier 2 Books and etc','Cashier 2 Books and etc',9,'2019-10-03 12:22:19'),(87,'College 1 Adding, Dropping Form','College 1 Adding, Dropping Form',4,'2019-10-03 12:23:25'),(88,'College 2 Adding, Dropping Form','College 2 Adding, Dropping Form',5,'2019-10-03 12:23:25'),(89,'Elementary Certificate Of Enrollment','Elementary Certificate Of Enrollment',3,'2019-10-03 12:29:37'),(90,'Assessment 1 Inquire','Assessment 1 Inquire',6,'2019-10-03 12:32:56'),(91,'Assessment 2 Inquire','Assessment 2 Inquire',7,'2019-10-03 12:32:56'),(92,'College 3 Study Load ','College 3 Study Load ',5,'2019-10-03 13:50:58'),(93,'College 3 Good Moral','College3  Good Moral',5,'2019-10-03 13:50:58'),(94,'College 3 Enrollment','College 3 Enrollment',5,'2019-10-03 13:55:19'),(95,'College 3 Entrance Exam','College 3 Entrance Exam',5,'2019-10-03 13:55:19'),(96,'College 3  Transcript of Record','College 3  Transcript of Record',5,'2019-10-03 13:55:19'),(97,'College 3  Certificate of Enrollment','College 3Certificate of Enrollment',5,'2019-10-03 13:55:19'),(98,'College 3  GWA','College 3  GWA',5,'2019-10-03 13:55:19'),(99,'College 3 Diploma','College 3 Diploma',5,'2019-10-03 13:55:19'),(100,'College 3 Adding, Dropping Form','College 3 Adding, Dropping Form',5,'2019-10-03 13:55:19');
+INSERT INTO `tbl_purpose` VALUES (1,' Enrollment','Elementary/Senior High School Enrollment',1,'2019-10-03 11:40:29'),(2,' Grades','Elementary/High School/Senior High School Grades',1,'2019-10-03 11:40:29'),(3,' Form 137','Elementary /High School/Senior High SchoolForm 137',1,'2019-10-03 11:52:52'),(4,'  Good Moral','Elementary/High School/Senior High School Good Moral',1,'2019-10-03 11:52:52'),(5,'Certificate of Enrollment','Elementary /High School/Senior High SchoolDiploma',1,'2019-10-03 11:52:52'),(6,' GWA','Elementary /High School/Senior High SchoolGWA',1,'2019-10-03 11:52:52'),(7,'Junior High School Grades','Junior High School Grades',2,'2019-10-03 11:55:09'),(8,'Junior High School Enrollment','Junior High School Enrollment',2,'2019-10-03 11:55:09'),(9,'Junior High School Good Moral','Junior High School Good Moral',2,'2019-10-03 11:55:09'),(10,'Junior High School Certificate of Enrollment','Junior High School Certificate of Enrollment',2,'2019-10-03 11:56:25'),(11,'Junior High School Form 137','Junior High School Form 137',2,'2019-10-03 11:56:26'),(12,'Junior High School  GWA','Junior High School  GWA',2,'2019-10-03 11:56:26'),(13,'Junior High School  Diploma','Junior High School  Diploma',2,'2019-10-03 11:56:48'),(24,'College 1 Study Load ','College  Study Load',3,'2019-10-03 12:09:26'),(25,'College 1 Good Moral','College  Good Mora',3,'2019-10-03 12:09:26'),(26,'College 1  Certificate of Enrollment','College   Certificate of Enrollment',3,'2019-10-03 12:09:26'),(27,'College 1  Transcript of Record','College   Transcript of Record',3,'2019-10-03 12:09:26'),(28,'College 1  GWA','College   GWA',3,'2019-10-03 12:09:26'),(29,'College 1 Diploma','College  Diploma',3,'2019-10-03 12:09:26'),(30,'College 2 Enrollment','College  Enrollment',4,'2019-10-03 12:09:26'),(31,'College 2 Entrance Exam','College  Entrance Exam',4,'2019-10-03 12:09:26'),(32,'College 2 Grades','College  Grades',4,'2019-10-03 12:09:26'),(33,'College 2 Study Load','College  Study Load',4,'2019-10-03 12:09:26'),(34,'College 2 Good Moral','College  Good Moral',4,'2019-10-03 12:09:26'),(35,'College 2  Certificate of Enrollment','College   Certificate of Enrollment',4,'2019-10-03 12:09:26'),(36,'College 2  Transcript of Record','College  Transcript of Record',4,'2019-10-03 12:09:26'),(71,'College 2 GWA','College  GWA',4,'2019-10-03 12:09:26'),(72,'College 2 Diploma','College  Diploma',4,'2019-10-03 12:09:26'),(81,'Assessment 1 Account Slip','Assessment  Statement of Accounts',6,'2019-10-03 12:22:18'),(82,'Assessment 2 Account Slip','Assessment   Statement of Accounts',7,'2019-10-03 12:22:18'),(83,'Cashier 1 Parents  Tuition Fees','Cashier  Parents  Tuition Fees',8,'2019-10-03 12:22:18'),(84,'Cashier 1 Books and etc','Cashier  Books and etc',8,'2019-10-03 12:22:19'),(85,'Cashier 2 Parents  Tuition Fees','Cashier Parents  Tuition Fees',9,'2019-10-03 12:22:19'),(86,'Cashier 2 Books and etc','Cashier  Books and etc',9,'2019-10-03 12:22:19'),(87,'College 1 Adding, Dropping Form','College  Adding, Dropping Form',4,'2019-10-03 12:23:25'),(88,'College 2 Adding, Dropping Form','College  Adding, Dropping Form',5,'2019-10-03 12:23:25'),(89,'Elementary Certificate Of Enrollment','Elementary Certificate Of Enrollment',3,'2019-10-03 12:29:37'),(90,'Assessment 1 Inquire','Assessment 1 Inquire',6,'2019-10-03 12:32:56'),(91,'Assessment 2 Inquire','Assessment 2 Inquire',7,'2019-10-03 12:32:56'),(92,'College 3 Study Load ','College Study Load ',5,'2019-10-03 13:50:58'),(93,'College 3 Good Moral','College Good Moral',5,'2019-10-03 13:50:58'),(94,'College 3 Enrollment','College  Enrollment',5,'2019-10-03 13:55:19'),(95,'College 3 Entrance Exam','College  Entrance Exam',5,'2019-10-03 13:55:19'),(96,'College 3  Transcript of Record','College   Transcript of Record',5,'2019-10-03 13:55:19'),(97,'College 3  Certificate of Enrollment','College Certificate of Enrollment',5,'2019-10-03 13:55:19'),(98,'College 3  GWA','College GWA',5,'2019-10-03 13:55:19'),(99,'College 3 Diploma','College Diploma',5,'2019-10-03 13:55:19'),(100,'College 3 Adding, Dropping Form','College  Adding, Dropping Form',5,'2019-10-03 13:55:19'),(101,'Priority Window Enrollment','Enrollment',10,'2019-10-15 08:21:54'),(102,'Priority Window Certificate of Enrollment','Certificate of Enrollment',10,'2019-10-15 08:21:54'),(103,'Priority Window Study Load','Study Load',10,'2019-10-15 08:21:54'),(104,'Priority Window Grades','Grades',10,'2019-10-15 08:21:54'),(105,'Priority Window GWA','GWA',10,'2019-10-15 08:21:54'),(106,'Priority Window TOR','Trabsccript of Records',10,'2019-10-15 08:21:54'),(107,'Priority Window Diploma','Diploma',10,'2019-10-15 08:21:54'),(108,'Priority Window Tuition Fees','Tuition Fee',10,'2019-10-15 08:21:54'),(109,'Priority Window Account Slip','Statement of Accounts',10,'2019-10-15 08:21:54'),(110,'Elementary/Senior High School College 1 Study Load ',' Account Slip',1,'2019-10-15 08:28:31'),(111,'College 1 Study Load ',NULL,NULL,'2019-10-15 08:31:02');
 /*!40000 ALTER TABLE `tbl_purpose` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `tbl_queues` (
   `purp_id` int(11) DEFAULT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`que_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `tbl_queues` (
 
 LOCK TABLES `tbl_queues` WRITE;
 /*!40000 ALTER TABLE `tbl_queues` DISABLE KEYS */;
-INSERT INTO `tbl_queues` VALUES (2,1,1,1,'2019-10-12 10:30:31'),(3,2,1,7,'2019-10-12 10:36:37'),(4,2,1,7,'2019-10-12 10:38:48');
+INSERT INTO `tbl_queues` VALUES (3,5,1,88,'2019-10-15 06:11:37'),(4,5,2,88,'2019-10-15 06:12:49'),(5,5,3,88,'2019-10-15 06:15:37'),(6,5,4,88,'2019-10-15 06:15:49'),(7,6,1,81,'2019-10-15 06:15:57');
 /*!40000 ALTER TABLE `tbl_queues` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +194,7 @@ CREATE TABLE `tbl_user_info` (
   `win_no` int(11) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`user_info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +203,7 @@ CREATE TABLE `tbl_user_info` (
 
 LOCK TABLES `tbl_user_info` WRITE;
 /*!40000 ALTER TABLE `tbl_user_info` DISABLE KEYS */;
-INSERT INTO `tbl_user_info` VALUES (1,1,'gage','cena','dalupere',NULL,'2019-10-12 07:08:30'),(2,2,'nova','d','veloz',NULL,'2019-10-12 07:08:30'),(3,3,'Tita','Villarta','Garrido',NULL,'2019-10-12 07:08:30'),(4,2,'asses','s','registrar1',NULL,'2019-10-12 07:08:30'),(5,2,'yoyo','cena','Me',NULL,'2019-10-12 07:08:30');
+INSERT INTO `tbl_user_info` VALUES (1,1,'gage','cena','dalupere',1,'2019-10-12 07:08:30'),(2,2,'nova','d','veloz',2,'2019-10-12 07:08:30'),(3,3,'Tita','Villarta','Garrido',3,'2019-10-12 07:08:30'),(4,4,'asses','s','registrar1',4,'2019-10-12 07:08:30'),(5,5,'yoyo','cena','Me',5,'2019-10-12 07:08:30'),(6,8,'Jimvoy','Gwapo','Melegrito',1,'2019-10-15 04:37:44'),(7,10,'Antoniette','China Oil','Ladesma',1,'2019-10-15 05:16:05');
 /*!40000 ALTER TABLE `tbl_user_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +220,7 @@ CREATE TABLE `tbl_window` (
   `dept_id` int(11) DEFAULT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`win_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,7 +229,7 @@ CREATE TABLE `tbl_window` (
 
 LOCK TABLES `tbl_window` WRITE;
 /*!40000 ALTER TABLE `tbl_window` DISABLE KEYS */;
-INSERT INTO `tbl_window` VALUES (1,'Registrar Elementaryl/ Senior High School',1,'2019-09-24 21:09:10'),(2,'Registrar Junior High School',2,'2019-09-24 21:31:34'),(3,'Registrar BSBA/CRIM',3,'2019-09-25 00:08:26'),(4,'Registrar EDUCATION',4,'2019-09-25 00:08:26'),(5,'Registrar BSOA/AOA/BSIT',5,'2019-09-25 00:08:26'),(6,'Assessment 1',6,'2019-09-25 00:08:26'),(7,'Assessment 2 ',7,'2019-09-25 00:26:19'),(8,'Cashier 1 Parent',8,'2019-09-25 00:26:19'),(9,'Cashier Students',9,'2019-09-25 00:26:19'),(10,'Priority ',10,'2019-10-03 06:02:48');
+INSERT INTO `tbl_window` VALUES (1,'Registrar Elementaryl/ Senior High School',1,'2019-09-24 20:09:10'),(2,'Registrar Junior High School',2,'2019-09-24 20:31:34'),(3,'Registrar BSBA/CRIM',3,'2019-09-24 23:08:26'),(4,'Registrar EDUCATION',4,'2019-09-24 23:08:26'),(5,'Registrar BSOA/AOA/BSIT',5,'2019-09-24 23:08:26'),(6,'Assessment 1',6,'2019-09-24 23:08:26'),(7,'Assessment 2 ',7,'2019-09-24 23:26:19'),(8,'Cashier 1 Parent',8,'2019-09-24 23:26:19'),(9,'Cashier Students',9,'2019-09-24 23:26:19'),(10,'Priority ',10,'2019-10-03 05:02:48');
 /*!40000 ALTER TABLE `tbl_window` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -573,4 +573,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-14  7:19:17
+-- Dump completed on 2019-10-16  3:37:04
