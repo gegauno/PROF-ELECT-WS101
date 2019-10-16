@@ -5,7 +5,7 @@ import netifaces as ni
 app = Flask(__name__)
 
 # Network Interface
-ip = ni.ifaddresses('enp3s0')[ni.AF_INET][0]['addr']
+ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 # Views
 app.add_url_rule('/login','login',View.login,methods=['POST'])
 app.add_url_rule('/','index',View.index) # Main Page

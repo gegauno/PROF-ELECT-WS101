@@ -49,7 +49,7 @@
   </header>
   <main>
     <div class="row">
-      <div class="col s12 m12">
+      <div class="col s6 m6">
         <div class="card green darken-1">
           <div class="card-content white-text">
               <span class="card-title white-text center" style="font-size: 4rem;">Window {{session['winNo']}}</span>
@@ -57,7 +57,7 @@
             <div class="progress">
                 <div class="indeterminate"></div>
             </div>
-            <span class="card-title center" style="font-size:4rem;" id="numb"></span>
+            <span class="cregistrard-title center" style="font-size:4rem;" id="numb"></span>
             <br>
             <input type="number" name="" id="q_purpid" value="" hidden >
             <input type="number" name="" id="q_numb" value="" hidden >
@@ -71,10 +71,26 @@
           </div>
         </div>
       </div>
+      <div class="col s6 m6" style="height: 350px;overflow-y: auto;">
+        <table>
+          <thead>
+            <th>Number</th>
+            <th>Purpose Name</th>
+          </thead>
+          <tbody>
+            {% for row in data %}
+              <tr>
+                <td>{{row[2]}}</td>
+                <td>{{row[10]}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
   <footer>
-    
+
   </footer>
     <!-- MaterializeCSS -->
     <script src="{{ url_for('static',filename='assets/js/materialize-css.min.js')}}"></script>
@@ -94,6 +110,7 @@
           quid: uid
         }).then(function(response){
           var obj = response.data;
+          console.log(obj);
           if(obj.status=='ok'){
             M.toast({html: 'Success!'});
             check();
@@ -101,9 +118,11 @@
             M.toast({html: 'Wait for more customer!'});
             check();
           }
+          location.reload(); // Reload the Page.
         }).catch(function(error){
           console.log(error);
         })
+
     });
     function check(){
          axios.post('/nextPrint', {
@@ -125,6 +144,7 @@
           if(obj.status=='n/a'){
             M.toast({html: 'No Customer Yet!'});
           }
+          console.log(obj);
         })
         .catch(function (error) {
           console.log(error);
@@ -132,6 +152,7 @@
     }
     window.setInterval(function(){
       check();
+      location.reload();
     },10000)
     check();
     // let status = '{{status}}';

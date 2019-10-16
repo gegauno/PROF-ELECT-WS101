@@ -36,10 +36,7 @@
                         <span class="card-title white-text" style="font-size:5rem;">
                             {% if row[0] == None %}
                                 {{1}}
-				<input type="number" name="number" hidden value="{{0}}">
-			    {% elif row[0] == 1 %}
-			    	{{2}}
-			    	<input type="number" name="number" hidden value="{{2}}">
+			                	<input type="number" name="number" hidden value="{{0}}">
                             {%else%}
                                 {{row[0]}}
                                 <input type="number" name="number" hidden value="{{row[0]}}">

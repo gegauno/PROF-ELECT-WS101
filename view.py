@@ -56,7 +56,7 @@ class View:
     def nextPrint():
         data = request.get_json(silent=True)
         win_no = data['winNo']
-        query = db.execute(f"SELECT view_nextPrint.numb, view_nextPrint.win_no,view_nextPrint.purp_id,view_purpDetails.purpose_name,view_purpDetails.purpose_desc FROM view_nextPrint INNER JOIN view_purpDetails ON view_nextPrint.win_no=view_purpDetails.win_no WHERE view_nextPrint.win_no={win_no} GROUP BY view_nextPrint.win_no")
+        query = db.execute(f"SELECT view_nextPrint.numb, view_nextPrint.win_no,view_nextPrint.purp_id,view_purpDetails.purpose_name,view_purpDetails.purpose_desc FROM view_nextPrint INNER JOIN view_purpDetails ON view_nextPrint.purp_id=view_purpDetails.purp_id WHERE view_nextPrint.win_no={win_no} GROUP BY view_nextPrint.win_no")
         result = query.fetchone()
         if not result:
             datas = {'status':'n/a'}
@@ -66,7 +66,9 @@ class View:
         # return f'''{result}'''
     def user():
         if 'user' in session:
-            return render_template('registrar_dashboard.html')
+            win_no = session['winNo']
+            query = db.execute(f"SELECT * FROM tbl_printed INNER JOIN view_purpDetails ON tbl_printed.purp_id=view_purpDetails.purp_id WHERE view_purpDetails.wwin_no={win_no}").fetchall()
+            return render_template('registrar_dashboard.html',data=query)
         else:
                 return redirect('/')
 
@@ -139,7 +141,7 @@ class View:
                 printer.write(f"Priority No: {numb}\n")
                 printer.write(f"Purpose: {query[5]}\n")
                 printer.write("--------------------------------\n")
-            result = db.execute(f"INSERT INTO tbl_printed (win_no,que_number,purp_id) VALUES ({win_no},{numb},{purp_id})")
+            result = db.execute(f"INSERT INTO tbl_printed (win_no,que_number,purp_id) VALUES ({win_no},{int(numb)+1},{purp_id})")
             result2 = db.execute(f"INSERT INTO tbl_queues (win_no,numb,purp_id) VALUES ({win_no},{int(numb)+1},{purp_id})")
             db.commit()
             return redirect("/que")
