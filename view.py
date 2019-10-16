@@ -81,10 +81,22 @@ class View:
         return render_template("print_no.html",data=data,data2 = data2)
     def admin_staff():
         if 'admin' in session:
+            win = db.execute("SELECT * FROM tbl_window").fetchall()
+            dept = db.execute("SELECT * FROM tbl_department").fetchall()
             query = db.execute("SELECT tbl_user_info.user_info_id,tbl_department.dept_desc,tbl_user_info.user_fname,tbl_user_info.user_mname,tbl_user_info.user_lname FROM tbl_user_info INNER JOIN tbl_department ON tbl_user_info.dept_id=tbl_department.dept_id").fetchall()
-            return render_template("admin_staffaccounts.html",data=query)
+            return render_template("admin_staffaccounts.html",data=query,win=win,dept=dept)
         else:
                 return redirect('/')
+    def addSA():
+        fname = request.form['fname']
+        lname = request.form['lname'] 
+        mname = request.form['mname']
+        dept = request.form['dept_id']
+        winNo = request.form['win_no']
+        query = db.execute(f"INSERT INTO tbl_user_info (dept_id,win_no,user_fname,user_mname,user_lname) VALUES ('{dept}','{winNo}','{fname}','{mname}','{lname}')")
+        db.commit()
+        return redirect("/admin_staff")
+
     def admin_users():
         if 'admin' in session:
             dept = db.execute("SELECT * FROM tbl_department").fetchall()

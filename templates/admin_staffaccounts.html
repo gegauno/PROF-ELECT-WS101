@@ -112,32 +112,33 @@
               <label for="fname">Fist Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="mname" type="password" name="mname" class="validate" required>
+              <input id="mname" type="text" name="mname" class="validate" required>
               <label for="mname">Middle Name</label>
             </div>
             <div class="input-field col s12">
-              <input id="lname" type="password" name="lname" class="validate" required>
+              <input id="lname" type="text" name="lname" class="validate" required>
               <label for="lname">Last Name</label>
             </div>
             <div class="input-field col s6">
-              <select name="staffid">
-                {% for row in staff %}
-                <option value="{{row[0]}}">{{row[4]}}, {{row[2]}}</option>
+              <select name="dept_id">
+                {% for row in dept %}
+                <option value="{{row[0]}}">{{row[1]}}</option>
                 {% endfor %}
               </select>
-              <label>Staff</label>
+              <label>Assigned Department</label>
             </div>
             <div class="input-field col s6">
-              <select name="utype">
-                <option value="1">User</option>
-                <option value="0">Admin</option>
+              <select name="win_no">
+                {% for row in win %}
+                <option value="{{row[0]}}">{{row[1]}}</option>
+                {% endfor %}
               </select>
-              <label>User Type</label>
+              <label>Assigned Window</label>
             </div>
           </div>
         </div>
         <div class="modal-footer green">
-          <button class="white-text btn blue waves-effect waves-blue btn-flat" type="submit" name="addUA">Submit <i class="material-icons right">send</i></button>
+          <button class="white-text btn blue waves-effect waves-blue btn-flat" type="submit" name="addSA">Submit <i class="material-icons right">send</i></button>
           <button class="white-text modal-close btn red waves-effect waves-red btn-flat">Cancel</button>
         </div>
       </form>
