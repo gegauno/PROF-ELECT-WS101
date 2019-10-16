@@ -96,18 +96,23 @@ class View:
             return redirect("/")
     def admin():
         if 'admin' in session:
-            query2 = db.execute("SELECT * FROM view_queWinMonth").fetchall()
+            query2 = db.execute("SELECT qMonth,qYear FROM view_queWinMonth GROUP BY qMonth ORDER BY qMonthNum ASC").fetchall()
             query = db.execute("SELECT qTotal,qMonth,qYear FROM view_queMonthly").fetchall()
             data = []
-            data2 = []
             for i in range(len(query)):
                 data.append(dict(query[i]))
-            for o in range(len(query2)):
-                data2.append(dict(query2[o]))
-            return render_template('admin_dashboard.html',data=json.dumps(data),data2=json.dumps(data2))
+            return render_template('admin_dashboard.html',data=json.dumps(data),months=query2)
         else:
             return redirect("/")
-
+    def chartData():
+        data = request.get_json(silent=True)
+        month = data['qMonth']
+        year = data['qYear']
+        query = db.execute(f"SELECT * FROM view_queWinMonth WHERE qMonth='{month}' AND qYear='{year}'").fetchall()
+        data = []
+        for i in range(len(query)):
+            data.append(dict(query[i]))
+        return f'''{json.dumps(data)}'''
     def login():
         uname = request.form['uname']
         passwd = request.form['passwd']
@@ -141,6 +146,7 @@ class View:
                 printer.write(f"Window Name.: {query[4]}\n")
                 printer.write(f"Priority No: {numb}\n")
                 printer.write(f"Purpose: {query[5]}\n")
+                printer.write("Brought to you by: GCC{ITExpo\}\n")
                 printer.write("--------------------------------\n")
             result = db.execute(f"INSERT INTO tbl_printed (win_no,que_number,purp_id) VALUES ({int(win_no)},{int(numb)},{purp_id})")
             result2 = db.execute(f"INSERT INTO tbl_queues (win_no,numb,purp_id) VALUES ({win_no},{int(numb)+1},{purp_id})")

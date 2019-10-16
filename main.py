@@ -23,6 +23,7 @@ app.add_url_rule('/admin_dept','admin_dept',View.admin_dept)
 app.add_url_rule('/windash','windash',View.windash)
 app.add_url_rule('/nextPrint','nextPrint',View.nextPrint,methods=['POST'])
 app.add_url_rule('/addUA','addUA',View.addUA,methods=['POST'])
+app.add_url_rule('/chartData','chartData',View.chartData,methods=['POST'])
 app.config['SECRET_KEY'] = 'fs0ci3ty'
 if __name__ == "__main__":
     # Flask

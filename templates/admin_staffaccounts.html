@@ -66,7 +66,7 @@
           <div class="table-header">
             <span class="table-title">School Staffs</span>
             <div class="actions">
-              <a href="#addClientes" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
+              <a href="#insertModal" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
               <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
             </div>
           </div>
@@ -100,6 +100,49 @@
         </div>
       </div>
     </div>
+    <!--  -->
+    <!-- Modal Structure -->
+    <div id="insertModal" class="modal modal-fixed-footer">
+      <form method="POST" action="/addSA">
+        <div class="modal-content">
+          <h4>Add User Accounts</h4>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="fname" type="text" name="fname" class="validate" required>
+              <label for="fname">Fist Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="mname" type="password" name="mname" class="validate" required>
+              <label for="mname">Middle Name</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="lname" type="password" name="lname" class="validate" required>
+              <label for="lname">Last Name</label>
+            </div>
+            <div class="input-field col s6">
+              <select name="staffid">
+                {% for row in staff %}
+                <option value="{{row[0]}}">{{row[4]}}, {{row[2]}}</option>
+                {% endfor %}
+              </select>
+              <label>Staff</label>
+            </div>
+            <div class="input-field col s6">
+              <select name="utype">
+                <option value="1">User</option>
+                <option value="0">Admin</option>
+              </select>
+              <label>User Type</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer green">
+          <button class="white-text btn blue waves-effect waves-blue btn-flat" type="submit" name="addUA">Submit <i class="material-icons right">send</i></button>
+          <button class="white-text modal-close btn red waves-effect waves-red btn-flat">Cancel</button>
+        </div>
+      </form>
+      </div>
+    <!--  -->
   </main>
   <footer>
 

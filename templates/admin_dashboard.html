@@ -63,11 +63,28 @@
   <main>
     <div class="container">
       <div class="row">
-        <div class="col s6">
+        <div class="col s12">
             <canvas id="myChart" width="300" height="300"></canvas>
         </div>
-        <div class="col s6">
-            <canvas id="myChart2" width="300" height="300"></canvas>
+        <div class="col s12">
+            <canvas id="chartData" width="300" height="300"></canvas>
+        </div>
+        <div class="input-field col s4">
+          <select name="yMonth" id="yMonth">
+            {% for row in months %}
+            <option value="{{row[0]}}">{{row[0]}}</option>
+            {% endfor %}
+          </select>
+          <label>Month</label>
+        </div>
+        <div class="input-field col s4">
+          <select name="yYear" id="yYear">
+            {% for row in months %}
+            <option value="{{row[1]}}">{{row[1]}}</option>
+            {% endfor %}
+          </select>
+          <label>Year</label>
+        </div>
         </div>
       </div> 
     </div>
@@ -80,11 +97,10 @@
     <script src="{{ url_for('static',filename='assets/js/materialize-css.min.js')}}"></script>
     <!-- ChartJS -->
     <script src="{{ url_for('static',filename='assets/js/Chart.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/axios.min.js')}}"></script>
     <script>
     M.AutoInit();
     var datas = document.querySelector("#datas").value;
-    var datas2 = document.querySelector("#datas2").value;
-    var obj2 = JSON.parse(datas2);
     var obj = JSON.parse(datas);
     var labelz = [];
     var totalz = [];
@@ -115,38 +131,39 @@
           }
       }
     });
-    var labely = [];
-    var totaly = [];
-    var winy = [];
-    for(var o=0;o<obj2.length;o++){
-      labely.push(obj2[o].qMonth);
-      totaly.push(obj2[o].qTotal);
-      winy.push(obj2[o].win_no);
-    }
-    var ctx2 = document.querySelector('#myChart2').getContext('2d');
-    var myChart = new Chart(ctx2, {
-      type: 'line',
-      data: {
-          labels: labely,
-          datasets: [{
-            label: winy,
-            data: totaly,
-            backgroundColor: 'rgba(107,194,130)',
-            borderColor: 'rgba(1,1,1,0.5)'
-          },{
-            
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-    });
+    let mon = document.querySelector("#yMonth");
+    let yr  = document.querySelector("#yYear");
+    axios.post('/chartData',{
+      qMonth: mon.options[mon.selectedIndex].value,
+      qYear: parseInt(yr.options[yr.selectedIndex].value)
+    }).then((response)=>{
+      console.log(response);
+      let obj = response.data;
+      var ctx = document.querySelector('#chartData').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labelz,
+            datasets: [{
+                label: "Monthly Reports",
+                data: totalz,
+                backgroundColor: 'rgba(0, 0, 255, 0.3)',
+                borderColor: 'rgba(0, 0, 255, 0.10)'
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+      });
+    }).catch((error)=>{
+      console.log(error);
+    })
     // let status = '{{status}}';
     // if(status!=''){
     //   M.toast({html: status})
