@@ -43,6 +43,7 @@ class View:
                 else:
                     query = db.execute(f"DELETE FROM tbl_printed WHERE win_no={qwin} AND que_number={qnumb}")
                     query2 = db.execute(f"DELETE FROM tbl_queues WHERE win_no={qwin} AND numb={qnumb}")
+                    query4 = db.execute(f"INSERT INTO tbl_queues (numb,win_no) VALUES ({int(qnumb)+1},{qwin})")
                     query3 = db.execute(f"INSERT INTO queue_logs (numb,purp_id,win_no,user_info_id) VALUES ({qnumb},{qpurp},{qwin},{uid})")
                     db.commit()
                     datas = {'status':'ok'}
@@ -141,7 +142,7 @@ class View:
                 printer.write(f"Priority No: {numb}\n")
                 printer.write(f"Purpose: {query[5]}\n")
                 printer.write("--------------------------------\n")
-            result = db.execute(f"INSERT INTO tbl_printed (win_no,que_number,purp_id) VALUES ({win_no},{int(numb)+1},{purp_id})")
+            result = db.execute(f"INSERT INTO tbl_printed (win_no,que_number,purp_id) VALUES ({int(win_no)},{int(numb)},{purp_id})")
             result2 = db.execute(f"INSERT INTO tbl_queues (win_no,numb,purp_id) VALUES ({win_no},{int(numb)+1},{purp_id})")
             db.commit()
             return redirect("/que")
