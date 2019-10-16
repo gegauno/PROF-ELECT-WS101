@@ -145,6 +145,8 @@ class View:
             return redirect("/que")
         except FileNotFoundError:
             return f'''<span>Printer Not Found!</span>'''
+        except PermissionError:
+            return f'''<span>Run the App As: <code>sudo python3 main</code></span>'''
     def index():
         # return f'''{status}'''
         return render_template('index.html')

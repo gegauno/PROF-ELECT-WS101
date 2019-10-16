@@ -1,1 +1,9 @@
 Flask
+flask
+Flask-SQLAlchemy
+sqlalchemy
+Jinja2
+gevent
+netifaces
+Flask-SocketIO
+func_timeout
