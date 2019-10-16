@@ -84,7 +84,7 @@ CREATE TABLE `tbl_login` (
   `utype` int(1) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `tbl_login` (
 
 LOCK TABLES `tbl_login` WRITE;
 /*!40000 ALTER TABLE `tbl_login` DISABLE KEYS */;
-INSERT INTO `tbl_login` VALUES (1,3,'root','admin1234',0,'2019-09-24 17:13:10'),(2,1,'gega','uno1234',1,'2019-09-25 00:44:35'),(3,2,'veloz','vickyveloz',1,'2019-10-03 10:21:31'),(6,5,'user','user1234',1,'2019-10-14 07:10:38'),(7,4,'registrar','registrar1234',1,'2019-10-14 07:12:13'),(8,1,'ladesma','1234',1,'2019-10-14 07:19:00');
+INSERT INTO `tbl_login` VALUES (1,3,'root','admin1234',0,'2019-09-24 17:13:10'),(2,1,'gega','uno1234',1,'2019-09-25 00:44:35'),(3,2,'veloz','vickyveloz',1,'2019-10-03 10:21:31'),(6,5,'user','user1234',1,'2019-10-14 07:10:38'),(7,4,'registrar','registrar1234',1,'2019-10-14 07:12:13'),(8,1,'ladesma','1234',1,'2019-10-14 07:19:00'),(9,9,'ambal','ambal1234',1,'2019-10-16 08:06:53');
 /*!40000 ALTER TABLE `tbl_login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `tbl_printed` (
   `purp_id` int(11) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `tbl_printed` (
 
 LOCK TABLES `tbl_printed` WRITE;
 /*!40000 ALTER TABLE `tbl_printed` DISABLE KEYS */;
-INSERT INTO `tbl_printed` VALUES (4,2,3,7,'2019-10-16 06:05:16'),(8,3,1,24,'2019-10-16 06:12:34'),(9,3,3,24,'2019-10-16 06:12:36'),(10,3,5,24,'2019-10-16 06:12:48'),(11,3,6,24,'2019-10-16 06:13:15'),(12,3,7,24,'2019-10-16 06:13:21'),(13,2,3,7,'2019-10-16 06:13:28'),(14,2,4,7,'2019-10-16 06:13:32'),(15,4,1,30,'2019-10-16 06:28:24');
+INSERT INTO `tbl_printed` VALUES (4,2,3,7,'2019-10-16 06:05:16'),(8,3,1,24,'2019-10-16 06:12:34'),(9,3,3,24,'2019-10-16 06:12:36'),(10,3,5,24,'2019-10-16 06:12:48'),(11,3,6,24,'2019-10-16 06:13:15'),(12,3,7,24,'2019-10-16 06:13:21'),(13,2,3,7,'2019-10-16 06:13:28'),(14,2,4,7,'2019-10-16 06:13:32'),(15,4,1,30,'2019-10-16 06:28:24'),(16,1,10,2,'2019-10-16 10:58:45'),(17,5,1,94,'2019-10-16 10:59:17'),(18,2,5,11,'2019-10-16 10:59:57'),(19,6,1,90,'2019-10-16 11:01:40'),(20,9,1,85,'2019-10-16 11:07:57'),(21,3,8,24,'2019-10-16 11:08:09'),(22,2,6,11,'2019-10-16 11:08:22'),(23,5,2,97,'2019-10-16 11:08:44'),(24,4,2,33,'2019-10-16 11:09:45'),(25,7,1,82,'2019-10-16 11:10:01'),(26,1,11,1,'2019-10-16 11:10:12'),(27,1,12,1,'2019-10-16 11:10:13'),(28,1,13,2,'2019-10-16 11:10:21'),(29,5,3,88,'2019-10-16 11:10:31');
 /*!40000 ALTER TABLE `tbl_printed` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `tbl_queues` (
   `purp_id` int(11) DEFAULT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`que_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `tbl_queues` (
 
 LOCK TABLES `tbl_queues` WRITE;
 /*!40000 ALTER TABLE `tbl_queues` DISABLE KEYS */;
-INSERT INTO `tbl_queues` VALUES (3,1,2,NULL,'2019-10-16 06:04:55'),(4,1,4,NULL,'2019-10-16 06:04:56'),(6,2,3,7,'2019-10-16 06:05:16'),(7,1,6,1,'2019-10-16 06:11:50'),(8,1,8,1,'2019-10-16 06:11:51'),(9,1,10,1,'2019-10-16 06:11:55'),(10,3,2,24,'2019-10-16 06:12:34'),(11,3,4,24,'2019-10-16 06:12:36'),(12,3,6,24,'2019-10-16 06:12:48'),(13,3,7,24,'2019-10-16 06:13:15'),(14,3,8,24,'2019-10-16 06:13:21'),(15,2,4,7,'2019-10-16 06:13:28'),(16,2,5,7,'2019-10-16 06:13:32'),(17,1,6,NULL,'2019-10-16 06:13:58'),(18,1,8,NULL,'2019-10-16 06:13:59'),(19,1,10,NULL,'2019-10-16 06:14:00'),(20,2,3,NULL,'2019-10-16 06:14:40'),(21,4,2,30,'2019-10-16 06:28:24');
+INSERT INTO `tbl_queues` VALUES (3,1,2,NULL,'2019-10-16 06:04:55'),(4,1,4,NULL,'2019-10-16 06:04:56'),(6,2,3,7,'2019-10-16 06:05:16'),(7,1,6,1,'2019-10-16 06:11:50'),(8,1,8,1,'2019-10-16 06:11:51'),(9,1,10,1,'2019-10-16 06:11:55'),(10,3,2,24,'2019-10-16 06:12:34'),(11,3,4,24,'2019-10-16 06:12:36'),(12,3,6,24,'2019-10-16 06:12:48'),(13,3,7,24,'2019-10-16 06:13:15'),(14,3,8,24,'2019-10-16 06:13:21'),(15,2,4,7,'2019-10-16 06:13:28'),(16,2,5,7,'2019-10-16 06:13:32'),(17,1,6,NULL,'2019-10-16 06:13:58'),(18,1,8,NULL,'2019-10-16 06:13:59'),(19,1,10,NULL,'2019-10-16 06:14:00'),(20,2,3,NULL,'2019-10-16 06:14:40'),(21,4,2,30,'2019-10-16 06:28:24'),(22,1,11,2,'2019-10-16 10:58:45'),(23,5,2,94,'2019-10-16 10:59:17'),(24,2,6,11,'2019-10-16 10:59:57'),(25,6,2,90,'2019-10-16 11:01:40'),(26,9,2,85,'2019-10-16 11:07:57'),(27,3,9,24,'2019-10-16 11:08:09'),(28,2,7,11,'2019-10-16 11:08:22'),(29,5,3,97,'2019-10-16 11:08:44'),(30,4,3,33,'2019-10-16 11:09:45'),(31,7,2,82,'2019-10-16 11:10:01'),(32,1,12,1,'2019-10-16 11:10:12'),(33,1,13,1,'2019-10-16 11:10:13'),(34,1,14,2,'2019-10-16 11:10:21'),(35,5,4,88,'2019-10-16 11:10:31');
 /*!40000 ALTER TABLE `tbl_queues` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +194,7 @@ CREATE TABLE `tbl_user_info` (
   `win_no` int(11) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`user_info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,7 +203,7 @@ CREATE TABLE `tbl_user_info` (
 
 LOCK TABLES `tbl_user_info` WRITE;
 /*!40000 ALTER TABLE `tbl_user_info` DISABLE KEYS */;
-INSERT INTO `tbl_user_info` VALUES (1,1,'gage','cena','dalupere',1,'2019-10-12 07:08:30'),(2,2,'nova','d','veloz',2,'2019-10-12 07:08:30'),(3,3,'Tita','Villarta','Garrido',3,'2019-10-12 07:08:30'),(4,4,'asses','s','registrar1',4,'2019-10-12 07:08:30'),(5,5,'yoyo','cena','Me',5,'2019-10-12 07:08:30'),(6,8,'Jimvoy','Gwapo','Melegrito',1,'2019-10-15 04:37:44'),(7,10,'Antoniette','China Oil','Ladesma',1,'2019-10-15 05:16:05');
+INSERT INTO `tbl_user_info` VALUES (1,1,'gage','cena','dalupere',1,'2019-10-12 07:08:30'),(2,2,'nova','d','veloz',2,'2019-10-12 07:08:30'),(3,3,'Tita','Villarta','Garrido',3,'2019-10-12 07:08:30'),(4,4,'asses','s','registrar1',4,'2019-10-12 07:08:30'),(5,5,'yoyo','cena','Me',5,'2019-10-12 07:08:30'),(6,8,'Jimvoy','Gwapo','Melegrito',1,'2019-10-15 04:37:44'),(7,10,'Antoniette','China Oil','Ladesma',1,'2019-10-15 05:16:05'),(8,1,'Ang ','Mobasa','Kay Pangit',1,'2019-10-16 08:06:03'),(9,1,'Ambal','Kay','Gwapo',1,'2019-10-16 08:06:26');
 /*!40000 ALTER TABLE `tbl_user_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,7 +369,8 @@ SET character_set_client = utf8;
   `user_lname` tinyint NOT NULL,
   `dept_id` tinyint NOT NULL,
   `dept_name` tinyint NOT NULL,
-  `dept_desc` tinyint NOT NULL
+  `dept_desc` tinyint NOT NULL,
+  `win_no` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -541,7 +542,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_userInfo` AS select `tbl_user_info`.`user_info_id` AS `user_info_id`,`tbl_user_info`.`user_fname` AS `user_fname`,`tbl_user_info`.`user_mname` AS `user_mname`,`tbl_user_info`.`user_lname` AS `user_lname`,`tbl_department`.`dept_id` AS `dept_id`,`tbl_department`.`dept_name` AS `dept_name`,`tbl_department`.`dept_desc` AS `dept_desc` from (`tbl_user_info` join `tbl_department` on(`tbl_department`.`dept_id` = `tbl_user_info`.`dept_id`)) */;
+/*!50001 VIEW `view_userInfo` AS select `tbl_user_info`.`user_info_id` AS `user_info_id`,`tbl_user_info`.`user_fname` AS `user_fname`,`tbl_user_info`.`user_mname` AS `user_mname`,`tbl_user_info`.`user_lname` AS `user_lname`,`tbl_department`.`dept_id` AS `dept_id`,`tbl_department`.`dept_name` AS `dept_name`,`tbl_department`.`dept_desc` AS `dept_desc`,`tbl_user_info`.`win_no` AS `win_no` from (`tbl_user_info` join `tbl_department` on(`tbl_department`.`dept_id` = `tbl_user_info`.`dept_id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -560,7 +561,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_userInfoDetails` AS select `view_userInfo`.`user_info_id` AS `user_info_id`,`view_userInfo`.`user_fname` AS `user_fname`,`view_userInfo`.`user_mname` AS `user_mname`,`view_userInfo`.`user_lname` AS `user_lname`,`view_userInfo`.`dept_id` AS `dept_id`,`view_userInfo`.`dept_desc` AS `dept_desc`,`view_userInfo`.`dept_name` AS `dept_name`,`tbl_window`.`win_no` AS `win_no`,`tbl_window`.`win_name` AS `win_name` from (`view_userInfo` left join `tbl_window` on(`view_userInfo`.`dept_id` = `tbl_window`.`dept_id`)) */;
+/*!50001 VIEW `view_userInfoDetails` AS select `view_userInfo`.`user_info_id` AS `user_info_id`,`view_userInfo`.`user_fname` AS `user_fname`,`view_userInfo`.`user_mname` AS `user_mname`,`view_userInfo`.`user_lname` AS `user_lname`,`view_userInfo`.`dept_id` AS `dept_id`,`view_userInfo`.`dept_desc` AS `dept_desc`,`view_userInfo`.`dept_name` AS `dept_name`,`tbl_window`.`win_no` AS `win_no`,`tbl_window`.`win_name` AS `win_name` from (`view_userInfo` left join `tbl_window` on(`view_userInfo`.`win_no` = `tbl_window`.`win_no`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -574,4 +575,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-16  8:38:31
+-- Dump completed on 2019-10-16 12:12:06
