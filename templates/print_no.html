@@ -27,53 +27,91 @@
     </ul>
     <div class="container">
         <div class="row">
-            {% for row in data%}
             <form action="/print_num" method="post">
-            <div class="col s10 m4">
+            <div class="col s10 m8">
                 <div class="card">
                     <div class="card-image">
                         <img src="{{url_for('static',filename='assets/img/bg.jpg')}}">
-                        <span class="card-title white-text" style="font-size:5rem;">
-                            {% if row[0] == None %}
-                                {{1}}
-                                <input type="number" name="number" hidden value="{{1}}">
-                            {%else%}
-                                {{row[0]}}
-                                <input type="number" name="number" hidden value="{{row[0]}}">
-                            {%endif%}
+                        <span class="card-title white-text" style="font-size:10rem;">
+                           <p id="numb"></p>
+                           
                         </span>
                     </div>
                     <div class="card-stacked">
                         <div class="card-content">
-                                <span class="card-title flow-text">{{row[6]}} Window <b>{{loop.index}}</b></span>
-                            <p>{{row[5]}}</p>
+                            <span class="card-title flow-text">Print Number</span>
+                            <input type="number" name="number" id="qNumb" hidden>
                             <div class="input-field col s12">
-                            <select name="purp_id" required>
-                                {% for col in data2 %}
-                                {% if row[7] == col[8] %}
-                                <option value="{{col[7]}}">{{col[6]}}</option>
-                                {% endif %}
-                                {% endfor %}
-                            </select>
-                            <label>Select Purpose:</label>
+                                <select name="win_no" id="win_no" required >
+                                    {% for row in win %}
+                                    <option value="{{row[0]}}">{{row[1]}}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="win_no">Choose Window:</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <select name="purp_id" id="purp_id" required>
+
+                                </select>
+                                <label for="purp_id">Select Purpose:</label>
                             </div>
                         </div>
                         <div class="card-action">
-                            <!-- <input type="hidden" name="number" type="number" value=""> -->
-                            <input type="hidden" name="win_no" type="number" value="{{row[7]}}">
                             <button class="btn btn-large waves-effect waves-light blue large" type="submit" name="print_num"><i class="material-icons large">print</i></button>
                         </div>
                     </div>                    
                 </div>
             </div>      
             </form>      
-            {% endfor %}
+
         </div>
     </div>
     <!-- MaterializeCSS -->
+    <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
     <script src="{{ url_for('static',filename='assets/js/materialize-css.min.js')}}"></script>
+    
     <script>
     M.AutoInit();
+    let win = document.querySelector("#win_no");
+    let purp = document.querySelector("#purp_id");
+    $("#win_no").on('change click selected',check);
+    $("#purp_id").on('change click selected',up);
+    function check(e){
+    // var total = e.options[e.selectedIndex].value;
+    var winNo = win.options[win.selectedIndex].value;
+        $.post('/checkPurp',{win_no:winNo},()=>{
+            
+        }).done((data)=>{
+            var obj = JSON.parse(data);
+            var purp_id = document.querySelector("#purp_id");    
+            var options = '';
+            $.each(obj,function(i,val){
+                // console.log(obj[i].purp_id+"|"+i+"|"+"val")
+                options = options+"<option data-numb='"+val.numb+"' value='"+val.purp_id+"'>"+val.purpose_name+"</option>";
+            });
+            $("#purp_id").empty();
+            $("#purp_id").append(options);
+            $("#purp_id").prop('selected',true).trigger('change');
+            // console.log(purp_id)
+            console.log(obj);   
+            M.AutoInit(); // Call this every change.
+        }).fail((error)=>{
+            console.log(error)  
+        });
+    }
+    function up(e){
+        let numb = this.options[this.selectedIndex].dataset.numb;
+        let qn = document.querySelector("#qNumb");
+        let nm = document.querySelector("#numb");
+        if(numb=='null'){
+            qn.value = 1;
+            nm.innerText = 1;
+        }else{
+            qn.value = numb;
+            nm.innerText = numb;
+        }
+    }
+    check();
     let status = '{{status}}';
     if(status!=''){
       M.toast({html: status.data})

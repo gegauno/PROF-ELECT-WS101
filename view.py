@@ -7,6 +7,13 @@ engine = create_engine('mysql+mysqldb://root:admin_1234@localhost:3306/db_queuin
 db = scoped_session(sessionmaker(bind=engine))
 
 class View:
+    def checkPurp():
+        win_no = request.form['win_no']
+        query = db.execute(f"SELECT * FROM view_purpDetails WHERE wwin_no={win_no}").fetchall()
+        data = []
+        for i in range(len(query)):
+            data.append(dict(query[i]))
+        return f'''{json.dumps(data)}'''
     def addUA():
         uname = request.form['uname']
         passwd = request.form['passwd']
@@ -74,11 +81,8 @@ class View:
                 return redirect('/')
 
     def que():
-        query = db.execute("SELECT * FROM view_queDetails")
-        query2 = db.execute("SELECT * FROM view_purpDetails")
-        data2 = query2.fetchall()
-        data = query.fetchall()
-        return render_template("print_no.html",data=data,data2 = data2)
+        win = db.execute("SELECT * FROM tbl_window").fetchall()
+        return render_template("print_no.html",win = win)
     def admin_staff():
         if 'admin' in session:
             win = db.execute("SELECT * FROM tbl_window").fetchall()

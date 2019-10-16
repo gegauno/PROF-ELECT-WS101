@@ -25,6 +25,7 @@ app.add_url_rule('/nextPrint','nextPrint',View.nextPrint,methods=['POST'])
 app.add_url_rule('/addUA','addUA',View.addUA,methods=['POST'])
 app.add_url_rule('/chartData','chartData',View.chartData,methods=['POST'])
 app.add_url_rule('/addSA','addSA',View.addSA,methods=['POST'])
+app.add_url_rule('/checkPurp','checkPurp',View.checkPurp,methods=['POST'])
 app.config['SECRET_KEY'] = 'fs0ci3ty'
 if __name__ == "__main__":
     # Flask
