@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker
 import json
 # MySQL Database
-engine = create_engine('mysql+mysqldb://root:admin_1234@localhost:3306/db_queuing',pool_size=100, max_overflow=0)
+engine = create_engine('mysql+mysqldb://root@localhost:3306/db_queuing',pool_size=1000, max_overflow=0)
 db = scoped_session(sessionmaker(bind=engine))
 
 class View:

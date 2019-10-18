@@ -1,11 +1,17 @@
 from flask import Flask
 from view import View
 import netifaces as ni
+import platform
 
 app = Flask(__name__)
 
-# Network Interface
-ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
+# Network Interface: Check if Windows or Linux
+if platform.system() == 'Windows':
+    ip = ni.ifaddresses('{3EBF924B-F995-4A2F-8897-450BE82FC788}')[ni.AF_INET][0]['addr'] # Windows
+elif platform.system() == 'Linux':
+    ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr'] # Linux 
+else:
+    ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr'] # Darwin (MacOS)
 # Views
 app.add_url_rule('/login','login',View.login,methods=['POST'])
 app.add_url_rule('/','index',View.index) # Main Page
@@ -30,5 +36,5 @@ app.config['SECRET_KEY'] = 'fs0ci3ty'
 if __name__ == "__main__":
     # Flask
     FLASK_APP="main"
-    Flask.run(app,debug=True,host=ip,port=5000)
+    Flask.run(app,debug=True,host=ip,port=5000,threaded=True)
     
