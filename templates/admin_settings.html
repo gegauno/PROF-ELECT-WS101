@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Settings</title>
+    <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/materializecss.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/materializecss-icons.css')}}">
+    <!-- ChartJS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/Chart.min.css')}}">
+    <style>
+      header, main, footer {
+        padding-left: 300px;
+      }
+
+      @media only screen and (max-width : 992px) {
+        header, main, footer {
+          padding-left: 0;
+        }
+      }
+    </style>
+</head>
+<body>
+  <header>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper white">
+              <a href="#!" class="brand-logo center green-text">Queuing System</a>
+              <a href="#" data-target="slide-out" class="sidenav-trigger green-text"><i class="material-icons">menu</i></a>
+              <ul id="nav-mobile" class="left hide-on-med-and-down green-text">
+                  <li><a href="#" id="menu" class="green-text"><i class="material-icons green-text">menu</i></a></li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+    <ul id="slide-out" class="sidenav sidenav-fixed green darken-2">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="{{url_for('static',filename='assets/img/bg.jpg')}}" alt="" style="width:100%;">
+            </div>
+            <a href="#user"><img class="circle" src="{{ url_for('static',filename='assets/img/gcclogo.png')}}"></a>
+            <a href="#name"><span class="white-text name">Admin</span></a>
+            <a href="#email"><span class="white-text email">admin@gcc.com</span></a>
+          </div>
+        </li>
+        <!-- <ul class="collapsible">
+          <li>
+            <div class="collapsible-header">Home<i class="material-icons left">home</i></div>
+            <div class="collapsible-body"><span>jalsjfklsklfas;lfj</span></div>
+          </li>
+        </ul> -->
+        <li ><a href="/admin" class="white-text">Home <i class="material-icons right white-text">home</i></a></li>
+        <li><a href="/admin_users" class="white-text">User Accounts <i class="material-icons right white-text">supervisor_account</i></a></li>
+        <li><a href="/admin_staff" class="white-text">Staff <i class="material-icons right white-text">assignment_ind</i></a></li>
+        <li><a href="/admin_dept" class="white-text">Department <i class="material-icons right white-text">business</i></a></li>
+        <li><a href="/admin_win" class="white-text">Windows <i class="material-icons right white-text">developer_board</i></a></li>
+        <li><a href="/admin_purp" class="white-text">Purposes <i class="material-icons right white-text">speaker_notes</i></a></li>
+        <li class="active"><a href="/admin_sett" class="white-text">Settings <i class="material-icons right white-text">settings</i></a></li>
+        <li><a href="/logout" class="white-text">Logout<i class="material-icons right white-text">logout</i></a></li>
+    </ul>
+      
+  </header>
+  <main>
+    <div class="container">
+        <div class="col s4">
+            <p>The Queue Number will back to zero.</p>
+            <label for="">Reset Queues:</label>
+            <a class="waves-effect waves-light btn orange"><i class="material-icons">refresh</i></a>
+        </div>
+        <div class="col s4">
+            <p>The Printed Queue Numbers will automatic t zeroero.</p>
+            <label for="">Reset Printed:</label>
+            <a class="waves-effect waves-light btn red"><i class="material-icons">refresh</i></a>
+        </div>
+    </div>
+  </main>
+  <footer>
+      <input type="text" name="" id="datas" hidden value="{{data}}">
+      <input type="text" name="" id="datas2" hidden value="{{data2}}">
+  </footer>
+    <!-- MaterializeCSS -->
+    <script src="{{ url_for('static',filename='assets/js/materialize-css.min.js')}}"></script>
+    <!-- ChartJS -->
+    <script src="{{ url_for('static',filename='assets/js/Chart.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/axios.min.js')}}"></script>
+    <script>
+      // SideNav
+        M.AutoInit();
+    // let status = '{{status}}';
+    // if(status!=''){
+    //   M.toast({html: status})
+    // }
+    </script>
+</body>
+</html>

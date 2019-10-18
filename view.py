@@ -179,3 +179,5 @@ class View:
     def logout():
         session.clear()
         return redirect("/")
+    def admin_sett():
+        return render_template("admin_settings.html")
