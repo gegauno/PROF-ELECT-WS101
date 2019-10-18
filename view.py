@@ -112,12 +112,13 @@ class View:
             return redirect("/")
     def admin():
         if 'admin' in session:
-            query2 = db.execute("SELECT qMonth,qYear FROM view_queWinMonth GROUP BY qMonth ORDER BY qMonthNum ASC").fetchall()
+            query2 = db.execute("SELECT qMonth FROM view_queWinMonth GROUP BY qMonth ORDER BY qMonthNum ASC").fetchall()
+            yr = db.execute("SELECT DISTINCT(qYear) FROM view_queWinMonth GROUP BY qYear ORDER BY qYear ASC").fetchall()
             query = db.execute("SELECT qTotal,qMonth,qYear FROM view_queMonthly").fetchall()
             data = []
             for i in range(len(query)):
                 data.append(dict(query[i]))
-            return render_template('admin_dashboard.html',data=json.dumps(data),months=query2)
+            return render_template('admin_dashboard.html',data=json.dumps(data),months=query2,yr=yr)
         else:
             return redirect("/")
     def chartData():
