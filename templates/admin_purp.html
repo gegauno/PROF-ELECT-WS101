@@ -24,7 +24,7 @@
 </head>
 <body>
   <header>
-      <div class="navbar">
+      <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper white">
             <a href="#!" class="brand-logo center green-text">Queuing System</a>
@@ -52,12 +52,13 @@
             <div class="collapsible-body"><span>jalsjfklsklfas;lfj</span></div>
           </li>
         </ul> -->
-        <li class="active"><a href="/admin" class="white-text">Home <i class="material-icons right white-text">home</i></a></li>
+        <li ><a href="/admin" class="white-text">Home <i class="material-icons right white-text">home</i></a></li>
         <li><a href="/admin_users" class="white-text">User Accounts <i class="material-icons right white-text">supervisor_account</i></a></li>
         <li><a href="/admin_staff" class="white-text">Staff <i class="material-icons right white-text">assignment_ind</i></a></li>
         <li><a href="/admin_dept" class="white-text">Department <i class="material-icons right white-text">business</i></a></li>
         <li><a href="/admin_win" class="white-text">Windows <i class="material-icons right white-text">developer_board</i></a></li>
-        <li><a href="/admin_purp" class="white-text">Purposes <i class="material-icons right white-text">speaker_notes</i></a></li>
+        <li class="active"><a href="/admin_purp" class="white-text">Purposes <i class="material-icons right white-text">speaker_notes</i></a></li>
+        <li><a href="/admin_sett" class="white-text">Settings <i class="material-icons right white-text">settings</i></a></li>
         <li><a href="/logout" class="white-text">Logout<i class="material-icons right white-text">logout</i></a></li>
     </ul>
       
@@ -69,6 +70,7 @@
           <div class="table-header">
             <span class="table-title">Purposes</span>
             <div class="actions">
+                <a class="waves-effect waves-effect btn-flat modal-trigger nopadding" href="#dupdate"><i class="material-icons">delete</i></a>
               <a href="#addClientes" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
               <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
             </div>
@@ -76,6 +78,12 @@
           <table id="datatable">
             <thead>
               <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" id="mChBx" />
+                    <span>Select All</span>
+                  </label>
+                </th>
                 <th>Purpose ID</th>
                 <th>Purpose Name</th>
                 <th>Purpose Description</th>
@@ -86,13 +94,18 @@
             <tbody>
                 {% for row in data %}
                 <tr>
+                  <td>
+                    <label>
+                      <input type="checkbox" class="chBx" data-id="{{row[0]}}" />
+                      <span></span>
+                    </label>
+                  </td>
                   <td>{{row[0]}}</td>
                   <td>{{row[1]}}</td>
                   <td>{{row[2]}}</td>
                   <td>{{row[3]}}</td>
                   <td>
                     <a class="waves-effect waves-light btn modal-trigger orange" href="#mupdate"><i class="material-icons white-text">edit</i></a>
-                    <a class="waves-effect waves-light btn modal-trigger red" href="#dupdate"><i class="material-icons white-text">delete</i></a>
                   </td>
                 </tr>
                 {% endfor %}
@@ -111,6 +124,26 @@
     <script src="{{ url_for('static',filename='assets/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ url_for('static',filename='assets/js/jq-data-material.js')}}"></script>
     <script>
+      let mChBx = document.querySelector("#mChBx");
+      let chBx = document.querySelectorAll(".chBx");
+      mChBx.addEventListener('click',function(){
+        if(mChBx.checked == true){
+          for (let i = 0; i < chBx.length; i++) {
+            chBx[i].checked = true;            
+          }
+        }else{
+          for (let i = 0; i < chBx.length; i++) {
+            chBx[i].checked = false;            
+          }
+        }
+      });
+      var check = (e)=>{
+        for (let i = 0; i < chBx.length; i++) {
+          if(chBx[i].checked == true){
+            console.log(chBx[i].dataset.id);
+          }          
+        }
+      }
         // SideNav
     let slout = document.querySelector("#slide-out");
     let men = document.querySelector("#menu");
