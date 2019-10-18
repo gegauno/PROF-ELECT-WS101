@@ -13,7 +13,7 @@
 [![Flask](https://palletsprojects.com/logo-large.png)](https://palletsprojects.com/p/flask/)
 
 ## Installation:
-1. Install all Python3 Libraries: <code>sudo pip3 install -r requirements.txt</code>
+1. Install all Python3 Libraries: <code>sudo pip3 install -r requirements.txt</code> Windows <code>pip install mysqlclient-1.4.4-cp38-cp38-win_amd64.whl</code>
 2. Linux: <code>apt install python3-mysqldb mariadb-server python3-flask</code> 
 3. Login to MariaDB Console: <code>sudo mysql -u root</code>
 4. Create Login Credentials on MariaDB: 

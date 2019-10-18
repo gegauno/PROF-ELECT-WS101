@@ -27,8 +27,10 @@
       <div class="navbar">
         <nav>
           <div class="nav-wrapper white">
-              <a href="#!" class="brand-logo center green-text">Queuing System</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons green-text">menu</i></a>  
+            <a href="#!" class="brand-logo center green-text">Queuing System</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down green-text">
+                <li><a href="#" id="menu" class="green-text"><i class="material-icons green-text">menu</i></a></li>
+            </ul>
           </div>
         </nav>
       </div>
@@ -108,6 +110,24 @@
     <script src="{{ url_for('static',filename='assets/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{ url_for('static',filename='assets/js/jq-data-material.js')}}"></script>
     <script>
+        // SideNav
+    let slout = document.querySelector("#slide-out");
+    let men = document.querySelector("#menu");
+    men.addEventListener('click',()=>{
+      if(slout.M_Sidenav.isOpen == false){
+        slout.M_Sidenav.open(); 
+        document.getElementsByTagName('footer')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('main')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('header')[0].style.paddingLeft = "300px";
+      }else if(slout.M_Sidenav.isOpen == true){
+        slout.M_Sidenav.close();
+        console.log(slout.M_Sidenav.isDragged)
+        document.getElementsByTagName('footer')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('main')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('header')[0].style.paddingLeft = 0;
+      }
+    })
+    // EndSideNav
     M.AutoInit();
     // let status = '{{status}}';
     // if(status!=''){
