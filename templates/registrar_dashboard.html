@@ -26,8 +26,11 @@
       <div class="navbar">
         <nav>
           <div class="nav-wrapper white">
-              <a href="#!" class="brand-logo center green-text">Queuing System</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons green-text">menu</i></a>  
+            <a href="#!" class="brand-logo center green-text">Queuing System</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger green-text"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down green-text">
+                <li><a href="#" id="menu" class="green-text"><i class="material-icons green-text">menu</i></a></li>
+            </ul>
           </div>
         </nav>
       </div>
@@ -42,7 +45,7 @@
             <a href="#email"><span class="white-text email">registrar@gcc.com</span></a>
           </div>
         </li>
-        <li class="active"><a href="/admin" class="white-text">Home <i class="material-icons right white-text">home</i></a></li>
+        <li class="active"><a href="/user" class="white-text">Home <i class="material-icons right white-text">home</i></a></li>
         <li><a href="/logout" class="white-text">Logout<i class="material-icons right white-text">logout</i></a></li>
     </ul>
       
@@ -97,6 +100,23 @@
     <script src="{{ url_for('static',filename='assets/js/axios.min.js')}}"></script>
     <script>
     M.AutoInit();
+    // SideNav
+    let slout = document.querySelector("#slide-out");
+    let men = document.querySelector("#menu");
+    men.addEventListener('click',()=>{
+      if(slout.M_Sidenav.isOpen == false){
+        slout.M_Sidenav.open(); 
+        document.getElementsByTagName('footer')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('main')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('header')[0].style.paddingLeft = "300px";
+      }else if(slout.M_Sidenav.isOpen == true){
+        slout.M_Sidenav.close();
+        document.getElementsByTagName('footer')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('main')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('header')[0].style.paddingLeft = 0;
+      }
+    })
+      // SideNav
     let btnext = document.querySelector("#btn-next");
     btnext.addEventListener('click',function(){
         var qnumb = document.querySelector("#q_numb");

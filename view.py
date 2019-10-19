@@ -130,6 +130,21 @@ class View:
         for i in range(len(query)):
             data.append(dict(query[i]))
         return f'''{json.dumps(data)}'''
+    def resetData():
+        data = request.get_json(silent=True)
+        if 'refQue' in data:
+            query = db.execute("TRUNCATE TABLE tbl_queues")
+            db.commit()
+            result = {'status':'Successfully Reset'}
+            return f'''{json.dumps(result)}'''
+        elif 'refPrint' in data:
+            query = db.execute("TRUNCATE TABLE tbl_printed")
+            db.commit()
+            result = {'status':'Successfully Reset'}
+            return f'''{json.dumps(result)}'''
+        else:
+            result = {'status':'NOT OK'}
+            return f'''{json.dumps(result)}'''
     def login():
         uname = request.form['uname']
         passwd = request.form['passwd']

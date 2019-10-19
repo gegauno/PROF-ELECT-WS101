@@ -69,12 +69,12 @@
         <div class="col s4">
             <p>The Queue Number will back to zero.</p>
             <label for="">Reset Queues:</label>
-            <a class="waves-effect waves-light btn orange"><i class="material-icons">refresh</i></a>
+            <a class="waves-effect waves-light btn orange" id="refQue"><i class="material-icons">refresh</i></a>
         </div>
         <div class="col s4">
             <p>The Printed Queue Numbers will automatic t zeroero.</p>
             <label for="">Reset Printed:</label>
-            <a class="waves-effect waves-light btn red"><i class="material-icons">refresh</i></a>
+            <a class="waves-effect waves-light btn red" id="refPrint"><i class="material-icons">refresh</i></a>
         </div>
     </div>
   </main>
@@ -88,8 +88,46 @@
     <script src="{{ url_for('static',filename='assets/js/Chart.min.js')}}"></script>
     <script src="{{ url_for('static',filename='assets/js/axios.min.js')}}"></script>
     <script>
+      M.AutoInit();
+      let refQue = document.querySelector("#refQue");
+      let refPrint = document.querySelector("#refPrint");
+      refPrint.addEventListener('click',()=>{
+        axios.post('/resetData',{
+          'refPrint': 'refPrint'
+        }).then((response)=>{
+          // console.log(response.data);
+          M.toast({html:response.data.status});
+        }).catch((error)=>{
+          console.log(error);
+        });
+      });
+      refQue.addEventListener("click",()=>{
+        axios.post('/resetData',{
+          'refQue':'refQue'
+        }).then((response)=>{
+          // console.log(response.data);
+          M.toast({html:response.data.status});
+        }).catch((error)=>{
+          console.log(error);
+        })
+      });
       // SideNav
-        M.AutoInit();
+    let slout = document.querySelector("#slide-out");
+    let men = document.querySelector("#menu");
+    men.addEventListener('click',()=>{
+      if(slout.M_Sidenav.isOpen == false){
+        slout.M_Sidenav.open(); 
+        document.getElementsByTagName('footer')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('main')[0].style.paddingLeft = "300px";
+        document.getElementsByTagName('header')[0].style.paddingLeft = "300px";
+      }else if(slout.M_Sidenav.isOpen == true){
+        slout.M_Sidenav.close();
+        document.getElementsByTagName('footer')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('main')[0].style.paddingLeft = 0;
+        document.getElementsByTagName('header')[0].style.paddingLeft = 0;
+      }
+    })
+      // SideNav
     // let status = '{{status}}';
     // if(status!=''){
     //   M.toast({html: status})
