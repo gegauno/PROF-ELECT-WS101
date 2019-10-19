@@ -7,3 +7,4 @@ gevent
 netifaces
 Flask-SocketIO
 func_timeout
+google_speech
